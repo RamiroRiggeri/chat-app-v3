@@ -67,7 +67,7 @@ const state = {
   signIn(callback) {
     const cs = this.getState();
     if (cs.email) {
-      fetch(API_BASE_URL + "/auth", {
+      fetch("/" + API_BASE_URL + "/auth", {
         method: "post",
         headers: {
           "content-type": "application/json",
