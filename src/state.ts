@@ -65,6 +65,8 @@ const state = {
   },
 
   signIn(callback) {
+    console.log("sign in: ", API_BASE_URL);
+
     const cs = this.getState();
     if (cs.email) {
       fetch("/" + API_BASE_URL + "/auth", {
