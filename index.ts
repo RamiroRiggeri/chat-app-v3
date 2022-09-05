@@ -9,15 +9,18 @@ app.use(cors());
 const userCollection = firestore.collection("users");
 const roomCollection = firestore.collection("rooms");
 
-app.post(port + "/signup", (req, res) => {
+app.post("/signup", (req, res) => {
   console.log("llegó al signup");
-
   const email = req.body.email;
   const nombre = req.body.nombre;
+  console.log("email y nombre: ", email, nombre);
+
   userCollection
     .where("email", "==", email)
     .get()
     .then((queryResp) => {
+      console.log(queryResp);
+
       if (queryResp.empty) {
         userCollection.add({ email, nombre }).then((newUserRef) => {
           res.json({ id: newUserRef.id, new: true });
@@ -35,6 +38,8 @@ app.post("/auth", (request, response) => {
   console.log("llegó al auth");
 
   const { email } = request.body;
+  console.log(email);
+
   userCollection
     .where("email", "==", email)
     .get()
