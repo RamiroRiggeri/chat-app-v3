@@ -44,7 +44,8 @@ class Chat extends HTMLElement {
           
           
           <div class="columns is-mobile">
-            <div class="column is-11 is-offset-1">
+          <div class="column"></div>
+            <div class="column is-11">
               <div class="content">
                 <div class="subt">Mensajes</div>
                 <div class="containerrr">
@@ -74,6 +75,7 @@ class Chat extends HTMLElement {
          <button class="button is-success">Enviar</button>
        </form>
   </div>
+  <div class="column"></div>
   </div>
     `;
     const style = document.createElement("style");
@@ -89,7 +91,9 @@ class Chat extends HTMLElement {
     }
     .content{
       height: 50vh;
+      width: 90%;
       overflow: hidden;
+      padding: 0;
     }
     .submit-message{
       display: flex;
@@ -100,7 +104,7 @@ class Chat extends HTMLElement {
       width: 90%;
     }
     .containerrr{
-      height: 35vh;
+      height: 40vh;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -129,9 +133,6 @@ class Chat extends HTMLElement {
     .input::placeholder {
       color: #A8A29E;
       opacity: 0.75;
-    }
-    .button{
-      margin-top:20px;
     }
     .messages{
       overflow-y: scroll;
