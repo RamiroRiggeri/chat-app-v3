@@ -2,9 +2,11 @@ import * as express from "express";
 import { firestore, firebase } from "./db";
 import { v4 as uuidv4 } from "uuid";
 import * as cors from "cors";
+
 const app = express();
 const port = process.env.PORT || 3099;
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(cors());
 const userCollection = firestore.collection("users");
 const roomCollection = firestore.collection("rooms");
@@ -13,7 +15,7 @@ app.post("/signup", (req, res) => {
   console.log("llegó al signup");
   const email = req.body.email;
   const nombre = req.body.nombre;
-  console.log("email y nombre: ", email, nombre);
+  console.log("body: ", req.body);
 
   userCollection
     .where("email", "==", email)
