@@ -44,7 +44,9 @@ const state = {
     cs.fullName = fullName;
     cs.email = email;
 
-    fetch("/10000/signup", {
+    const urlToFetch = "https://chat-app-v3.onrender.com/signup";
+
+    fetch(urlToFetch, {
       method: "post",
       headers: {
         "content-type": "application/json",
