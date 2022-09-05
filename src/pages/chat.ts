@@ -44,39 +44,36 @@ class Chat extends HTMLElement {
           
           
           <div class="columns is-mobile">
-          <div class="column"></div>
-          <div class="column is-two-thirds">
-          <div class="content">
-          <div class="subt">Mensajes</div>
-          <div class="containerrr">
-          <div class="messages">
-          ${this.messages
-            .map((msg) => {
-              if (msg.from !== undefined) {
-                if (msg.from === currState.fullName) {
-                  return `<div class="msg-container mens-mio">
-                    <div class="messagefrom">${msg.from}</div>
-                    <div class="messagecontent">${msg.message}</div>
-                    </div>`;
-                } else if (msg.from !== currState.fullName) {
-                  return `<div class="msg-container mens-suyo">
-                    <div class="messagefrom">${msg.from}</div>
-                    <div class="messagecontent">${msg.message}</div>
-                    </div>`;
-                }
-              }
-            })
-            .join("")}
-          </div>
-       </div>
-     </div>
+            <div class="column is-11 is-offset-1">
+              <div class="content">
+                <div class="subt">Mensajes</div>
+                <div class="containerrr">
+                  <div class="messages">
+                    ${this.messages
+                      .map((msg) => {
+                        if (msg.from !== undefined) {
+                          if (msg.from === currState.fullName) {
+                            return `<div class="msg-container mens-mio">
+                              <div class="messagefrom">${msg.from}</div>
+                              <div class="messagecontent">${msg.message}</div>
+                              </div>`;
+                          } else if (msg.from !== currState.fullName) {
+                            return `<div class="msg-container mens-suyo">
+                              <div class="messagefrom">${msg.from}</div>
+                              <div class="messagecontent">${msg.message}</div>
+                              </div>`;
+                          }
+                        }
+                      })
+                      .join("")}
+                  </div>
+                </div>
+              </div>
      <form class="submit-message">
          <input type="text" name="new-message" class="input" placeholder="Tu Mensaje">
          <button class="button is-success">Enviar</button>
        </form>
   </div>
-
-        <div class="column"></div>
   </div>
     `;
     const style = document.createElement("style");
@@ -92,9 +89,14 @@ class Chat extends HTMLElement {
     }
     .content{
       height: 60vh;
+      overflow: hidden;
+    }
+    .submit-message{
+      display: flex;
+      flex-direction: row;
     }
     .containerrr{
-      height: 50vh;
+      height: 40vh;
       display: flex;
       flex-direction: column;
       gap: 20px;

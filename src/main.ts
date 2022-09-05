@@ -6,8 +6,6 @@ import { Router } from "@vaadin/router";
 
 (function main() {
   const app = document.getElementById("app");
-  console.log(process.env);
-
   // if (localStorage.getItem("state") !== null) {
   //   state.init();
   //   setTimeout(() => {
