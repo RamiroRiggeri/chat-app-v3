@@ -94,6 +94,7 @@ class Chat extends HTMLElement {
     .submit-message{
       display: flex;
       flex-direction: row;
+      align-items: center;
     }
     .containerrr{
       height: 40vh;
