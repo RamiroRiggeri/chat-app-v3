@@ -25,7 +25,7 @@
     "build:front": "parcel build ./src/index.html",
     "dev:api": "nodemon --watch './api/index.ts' --exec 'ts-node ./api/dev.ts'",
     "build:api": "tsc",
-    "build": "yarn build:front && yarn build:api",
+    "build": "yarn && yarn build:front && yarn build:api",
     "start": "node ./index.js"
   }
 }
