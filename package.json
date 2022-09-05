@@ -1,6 +1,7 @@
 {
   "name": "klklkl",
   "version": "1.0.0",
+  "type": "commonjs",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^18.7.14",
