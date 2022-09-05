@@ -9,7 +9,7 @@ app.use(cors());
 const userCollection = firestore.collection("users");
 const roomCollection = firestore.collection("rooms");
 
-app.post("/signup", (req, res) => {
+app.post(port + "/signup", (req, res) => {
   console.log("llegó al signup");
 
   const email = req.body.email;
