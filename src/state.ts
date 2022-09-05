@@ -57,8 +57,6 @@ const state = {
         return res.json();
       })
       .then((data) => {
-        console.log("llegó la data", data, data.id);
-
         cs.userId = data.id;
         this.setState(cs);
         callback();
@@ -67,11 +65,10 @@ const state = {
   },
 
   signIn(callback) {
-    console.log("sign in: ", API_BASE_URL);
-
+    const urlToFetch = "https://chat-app-v3.onrender.com/auth";
     const cs = this.getState();
     if (cs.email) {
-      fetch("/" + API_BASE_URL + "/auth", {
+      fetch(urlToFetch, {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -93,8 +90,10 @@ const state = {
 
   askNewRoom(callback?) {
     const cs = this.getState();
+    const urlToFetch = "https://chat-app-v3.onrender.com/rooms";
+
     if (cs.userId) {
-      fetch(API_BASE_URL + "/rooms", {
+      fetch(urlToFetch, {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -123,10 +122,11 @@ const state = {
     } else if (cs.roomId) {
       roomId = cs.roomId;
     }
+    const urlToFetch = "https://chat-app-v3.onrender.com/rooms/" + roomId + "?userId=" + cs.userId;
 
-    const URL = API_BASE_URL + "/rooms/" + roomId + "?userId=" + cs.userId;
+    console.log(urlToFetch);
 
-    fetch(URL)
+    fetch(urlToFetch)
       .then((res) => {
         return res.json();
       })
@@ -151,10 +151,11 @@ const state = {
     });
   },
 
-  //checkear si anda
   pushMessage(message: string) {
+    const urlToFetch = "https://chat-app-v3.onrender.com/messages";
+
     const cs = this.getState();
-    fetch(API_BASE_URL + "/messages", {
+    fetch(urlToFetch, {
       method: "post",
       headers: {
         "content-type": "application/json",
