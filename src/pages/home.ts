@@ -87,18 +87,12 @@ class Home extends HTMLElement {
               <label class="label">Nombre</label>
               <div class="control has-icons-left has-icons-right">
                 <input class="input" type="text" placeholder="Tu nombre" name="nombre" required />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-user-astronaut"></i>
-                </span>
               </div>
             </div>
             <div class="field">
               <label class="label">Email</label>
               <div class="control has-icons-left has-icons-right">
                 <input class="input" type="email" placeholder="tunombre@ejemplo.com" name="email" required />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
-                </span>
               </div>
             </div>
   
