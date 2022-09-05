@@ -11,7 +11,7 @@ app.use(cors());
 const userCollection = firestore.collection("users");
 const roomCollection = firestore.collection("rooms");
 
-app.post("/signup", (req, res) => {
+app.post("10000" + "/signup", (req, res) => {
   console.log("llegó al signup");
   const email = req.body.email;
   const nombre = req.body.nombre;

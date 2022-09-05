@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const firebaseConfig = JSON.parse(process.env.FIREBASE_FRONT);
-console.log(firebaseConfig, "env: ", process.env.FIREBASE_FRONT);
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyAqmHOSDIcXwLFxGdnxVfnMqwq_3Kq0Ft4",

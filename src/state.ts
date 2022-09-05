@@ -28,15 +28,14 @@ const state = {
     }
     localStorage.setItem("state", JSON.stringify(newState));
     console.log("nuevo state", this.data);
-    console.log("API_BASE_URL", API_BASE_URL);
   },
   subscribe(callback: (any) => any) {
     this.listeners.push(callback);
   },
   init() {
-    const recoverStateFromLocalSt = JSON.parse(localStorage.getItem("state"));
-    this.setState(recoverStateFromLocalSt);
-    this.accessToRoom(() => {}, recoverStateFromLocalSt.roomId);
+    // const recoverStateFromLocalSt = JSON.parse(localStorage.getItem("state"));
+    // this.setState(recoverStateFromLocalSt);
+    // this.accessToRoom(() => {}, recoverStateFromLocalSt.roomId);
   },
 
   // funciones del proyecto
@@ -45,7 +44,7 @@ const state = {
     cs.fullName = fullName;
     cs.email = email;
 
-    fetch("/signup", {
+    fetch("/10000/signup", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -56,6 +55,8 @@ const state = {
         return res.json();
       })
       .then((data) => {
+        console.log("llegó la data", data, data.id);
+
         cs.userId = data.id;
         this.setState(cs);
         callback();
