@@ -28,6 +28,7 @@ const state = {
     }
     localStorage.setItem("state", JSON.stringify(newState));
     console.log("nuevo state", this.data);
+    console.log("API_BASE_URL", API_BASE_URL);
   },
   subscribe(callback: (any) => any) {
     this.listeners.push(callback);
@@ -44,7 +45,7 @@ const state = {
     cs.fullName = fullName;
     cs.email = email;
 
-    fetch(API_BASE_URL + "/signup", {
+    fetch("/signup", {
       method: "post",
       headers: {
         "content-type": "application/json",
